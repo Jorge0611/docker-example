@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  backend:
+    container_name: sneaker-city-api
+    build:
+      context: ./sneaker-city-api
+    ports:
+      - 3001:3001
+  frontend:
+    container_name: sneaker-city
+    links:
+      - backend
+    build:
+      context: ./sneaker-city
+    ports:
+      - 3000:3000
